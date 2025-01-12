@@ -5,7 +5,7 @@ students.forEach((student) => {
 });
 
 const filteredStudents = students.filter(
-  (student) => student.lastName[0].toLowerCase() === "d"
+  (student) => student.lastName[0].trim().toLowerCase() === "d"
 );
 console.log(
   `Count of last names starting with D is ${filteredStudents.length}`
