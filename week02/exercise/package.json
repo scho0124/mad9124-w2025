@@ -1,0 +1,22 @@
+{
+  "name": "expressapp",
+  "version": "1.0.0",
+  "description": "Assignment 2 Express App",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/scho0124/mad9124-w2025.git"
+  },
+  "author": "Ryan Schock",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/scho0124/mad9124-w2025/issues"
+  },
+  "homepage": "https://github.com/scho0124/mad9124-w2025#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
