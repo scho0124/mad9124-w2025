@@ -12,7 +12,7 @@ console.log(
 );
 
 const studentEmails = students.map((student) =>
-  `${student.firstName}${student.lastName}@algonquinlive.com`.toLowerCase()
+  `${student.firstName}@algonquinlive.com`.toLowerCase()
 );
 
 console.log(studentEmails);
