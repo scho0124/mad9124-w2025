@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.21.2"
+  },
+  "name": "ex_3",
+  "version": "1.0.0",
+  "description": "Exercise 3 for MAD9124",
+  "main": "index.js",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "author": "Ryan Schock",
+  "license": "ISC"
+}
