@@ -10,7 +10,7 @@ app.get("/api/cars", (req, res) => res.send({ data: cars }));
 
 app.get("/api/cars/:id", (req, res) => {
   const car = cars.find((car) => car.id === parseInt(req.params.id));
-  res.send({ data: car });
+  res.status(200).send({ data: car });
 });
 
 app.post("/api/cars", (req, res) => {
@@ -26,9 +26,9 @@ app.post("/api/cars", (req, res) => {
 });
 
 app.patch("/api/cars/:id", (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = parseInt(req.params.id, 10);
   const index = cars.findIndex((car) => car.id === id);
-  if (index < 0) {
+  if (!id) {
     res.status(404).send({
       error: `Car with id ${id} not found`,
     });
@@ -40,13 +40,13 @@ app.patch("/api/cars/:id", (req, res) => {
     ...theRest,
   };
   cars[index] = updatedCar;
-  res.send({ data: updatedCar });
+  res.status(202).send({ data: updatedCar });
 });
 
 app.put("/api/cars/:id", (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = parseInt(req.params.id, 10);
   const index = cars.findIndex((car) => car.id === id);
-  if (index < 0) {
+  if (!id) {
     res.status(404).send({
       error: `Car with id ${id} not found`,
     });
@@ -55,13 +55,13 @@ app.put("/api/cars/:id", (req, res) => {
   const { make, model, colour } = req.body;
   const updatedCar = { id, make, model, colour };
   cars[index] = updatedCar;
-  res.send({ data: updatedCar });
+  res.status(202).send({ data: updatedCar });
 });
 
 app.delete("/api/cars/:id", (req, res) => {
-  const id = parseInt(req.params.id);
+  const id = parseInt(req.params.id, 10);
   const index = cars.findIndex((car) => car.id === id);
-  if (index < 0) {
+  if (!id) {
     res.status(404).send({
       error: `Car with id ${id} not found`,
     });
@@ -69,8 +69,7 @@ app.delete("/api/cars/:id", (req, res) => {
   }
   const deletedCar = cars[index];
   cars.splice(index, 1);
-  res.send({ data: deletedCar });
-  console.log(cars);
+  res.status(200).send({ data: deletedCar });
 });
 
 const PORT = process.env.PORT || 4000;
