@@ -13,6 +13,11 @@ const validateUserData = (requireAll) => (req, res, next) => {
     return;
   }
   next();
+
+  if (name && email) {
+    res.status(201);
+  }
+  next();
 };
 
 module.exports = validateUserData;
